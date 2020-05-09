@@ -1,0 +1,50 @@
+<div class="container gift">
+    <button class="btn" data-toggle="modal" data-target="#addGiftModal" v-on:click="getAllGifts()">Agregar regalos</button>
+    <div class="gift-doing-table">
+        <h3>Regalos realizados por los invitados</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th>Regalo</th>
+                        <th>Regalado por</th>
+                        <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="gift in gifts">
+                        <td><!--{{ gift.description }}--></td>
+                        <td><!--{{ gift.gifted_by.description }}--></td>
+                        <td>
+                            <button class="btn">Liberar</button>
+                        </td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                        <th>Regalo</th>
+                        <th>Regalado por</th>
+                        <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="gift in gifts">
+                        <td><!--{{ gift.description }}--></td>
+                        <td><!--{{ gift.gifted_by.description }}--></td>
+                        <td>
+                            <button class="btn">Liberar</button>
+                        </td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+    

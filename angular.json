@@ -28,9 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "invite-angular"
+    }
+  },
+  "defaultProject": "invite-angular",
+  "cli": {
+    "analytics": "265ce892-54d8-47d1-ac3e-2e2f988ca406"
+  }
 }

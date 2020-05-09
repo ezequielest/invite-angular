@@ -1,0 +1,156 @@
+
+@import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixins';
+@import '../../../../assets/scss/animations';
+
+
+
+.admin-header {
+    position: relative;
+
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    @include grandient_trans_img($gradient_trans_from, $gradient_trans_to, '/assets/slider-single-1.jpg');
+
+    // Styling for the navbar
+    #mainNav {
+        border-color: fade-out($gray-darker, .95);
+        background-color: white;
+        @include transition-all;
+        @include heading-font;
+        .navbar-brand {
+            color: $theme-primary;
+            @include heading-font;
+            &:hover,
+            &:focus {
+                color: darken($theme-primary, 10%);
+            }
+        }
+        .navbar-toggler {
+            font-size: 12px;
+            padding: 8px 10px;
+            color: $gray-darker;
+        }
+        .navbar-nav {
+            > li {
+                > a {
+                    font-size: 11px;
+                    @include alt-font;
+                    &.active {
+                        color: $theme-secondary-dark !important;
+                        background-color: transparent;
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
+                }
+                > a,
+                > a:focus {
+                    color: $gray-darker;
+                    &:hover {
+                        color: $theme-primary;
+                    }
+                }
+            }
+        }
+        @media (min-width: 992px) {
+            border-color: transparent;
+            background-color: transparent;
+            .navbar-brand {
+                color: fade($theme-secondary-dark, 70%);
+                &:hover,
+                &:focus {
+                    color: white;
+                }
+            }
+            .navbar-nav > li > a,
+            .navbar-nav > li > a:focus {
+                color: fade-out(white, .3);
+                &:hover {
+                    color: white;
+                }
+            }
+            &.navbar-shrink {
+                border-color: fade-out($gray-darker, .9);
+                background-color: white;
+                .navbar-brand {
+                    color: $gray-darker;
+                    &:hover,
+                    &:focus {
+                        color: $theme-primary;
+                    }
+                }
+                .navbar-nav > li > a,
+                .navbar-nav > li > a:focus {
+                    color: $gray-darker;
+                    &:hover {
+                        color: $theme-primary;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar-brand {
+                color: $gray-darker;
+            }
+        }
+    }
+
+
+    .header-content {
+        max-width: 500px;
+        margin-bottom: 100px;
+
+        text-align: center;
+        h1 {
+            font-size: 30px;
+            font-weight: 100px;
+            .fa-heart {
+                animation: pulse 2s infinite;
+            }
+        }
+    }
+    .device-container {
+        max-width: 325px;
+        margin-right: auto;
+        margin-left: auto;
+        @include scroll;
+        .screen {
+            overflow-y: scroll;
+
+            img {
+                border-radius: 3px;
+                border: 0;
+            }
+            .img-fluid {
+                max-width: 105%;
+            }
+        }
+    }
+    @media (min-width: 992px) {
+        height: 300px;
+        //min-height: 775px;
+        padding-top: 70px;
+        padding-bottom: 0;
+        .header-content {
+            margin-bottom: 0;
+
+            text-align: left;
+            h1 {
+                font-size: 50px;
+            }
+        }
+        .device-container {
+            max-width: 325px;
+        }
+    }
+}

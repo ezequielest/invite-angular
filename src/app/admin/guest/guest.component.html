@@ -1,0 +1,79 @@
+<div class="container guest">
+    <div class="row">
+      <div class="col-12">
+        <button class="btn" data-toggle="modal" data-target="#guestModal">Agregar Invitado</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        TOTAL INVITADOS: <!--{{ guestsList ? guestsList.length : 0 }}-->
+      </div>
+      <div class="col-4">
+        CONFIRMADOS: <!--{{ countGuest.confirmed }}-->
+      </div>
+      <div class="col-4">
+        SIN CONFIRMAR:<!-- {{ countGuest.withoutConfirm }}-->
+      </div>
+    </div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Invitados</th>
+        <th>Cantidad</th>
+        <th>Confirmado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="guest in guestsList">
+        <td><!--{{ guest.description }}--></td>
+        <td><!--{{ guest.cant }}--></td>
+        <td><!--{{ guest.confirmed }}--></td>
+        <td>
+          <button class="btn" data-toggle="modal" data-target="#guestModal" v-on:click="selectGuest(guest)">Editar</button>
+          <button class="btn" v-on:click="deleteGuest(guest)">Eliminar</button>
+        </td>
+        </tr> 
+    </tbody>
+  </table>
+
+  <div id="guestModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h5 class="modal-title">Agregar nuevo invitado</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-7">
+              <input type="text" class="form-control" placeholder="Descripcion" value="" v-model="guestDescription">
+            </div>
+            <div class="col-3">
+              <input type="text" class="form-control" step="1" placeholder="Cantidad" value="" v-model="guestCant" disabled> 
+            </div>
+            <div class="col-2"> 
+              <button v-on:click="sumar()">+</button><button v-on:click="restar()">-</button>
+            </div>
+          </div>
+          <div class="gift-response"></div>
+        </div>
+        <div class="modal-footer">
+          <template v-if="isEditing">
+              <button class="btn btn-primary" v-on:click="editGuest()">Editar</button>
+          </template>
+          <template v-else>
+              <button class="btn btn-primary" v-on:click="addGuest()">Agregar</button>
+          </template>
+        
+          <button class="btn btn-secondary" data-dismiss="modal" v-on:click="cancelGuest()">Cancelar</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
