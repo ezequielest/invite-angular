@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal fade" id="addEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar nuevo invitado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row" [formGroup]="guestForm">
+          <div class="col-12">
+            <label for="description">Descripción invitado</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="Descripcion" value="">
+          </div>
+          <div class="col-6">
+            <label for="cant">Cantidad de personas</label>
+            <div class="cant-person-container">
+              <button class="btn btn-primary" (click)="restar()">-</button>
+              <input type="text" class="form-control" step="1" formControlName="cant" placeholder="Cantidad" value="">
+              <button class="btn btn-primary" (click)="sumar()">+</button>
+            </div>
+          </div>
+          <div class="col-6">
+            <label>Invitado confirmado</label>
+            <div class="check-container">
+              <input type="checkbox" name="confirmed" class="form-check-input" step="1" formControlName="confirmed" value="">
+              <label for="confirm">
+                <span *ngIf="guestForm.value.confirmed else noConfirm">Confirmado</span>
+                <ng-template #noConfirm>No confirmado</ng-template>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="gift-response"></div>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" (click)="submitingGuest()">
+            <span *ngIf="isEditing else isCreate">Editar</span>
+            <ng-template #isCreate>Agregar</ng-template>
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal" v-on:click="cancelGuest()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

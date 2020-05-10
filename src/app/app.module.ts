@@ -10,6 +10,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { AdminModule } from './admin/admin.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     AdminModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

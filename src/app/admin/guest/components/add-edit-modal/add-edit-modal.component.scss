@@ -1,0 +1,17 @@
+.cant-person-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    input {
+        width: 60%;
+    }
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.check-container {
+    margin-left: 20px;
+}
