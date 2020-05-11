@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AddEditModalComponent } from './guest/components/add-edit-modal/add-edit-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ManageGiftComponent } from './gift/manage-gift/manage-gift.component';
+import { SummaryGiftComponent } from './gift/summary-gift/summary-gift.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SharedModule } from '../shared/shared.module';
     TableComponent,
     HeaderComponent,
     FooterComponent,
-    AddEditModalComponent
+    AddEditModalComponent,
+    ManageGiftComponent,
+    SummaryGiftComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+<div class="container gift">
+    <div class="gift-doing-table">
+        <div class="row">
+            <div class="col-md-12">
+                Mi lista de Regalos
+                <ul class="list-group">
+                    <li  class="list-group-item" *ngFor="let gift of giftList"> 
+                        {{ gift.description }}
+                        <span *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
