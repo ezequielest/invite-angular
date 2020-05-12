@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal fade" id="addEditGiftModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar nuevo regalo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row" [formGroup]="giftForm">
+            <div class="col-12">
+              <label for="description">Descripción</label>
+              <input type="text" class="form-control" formControlName="description" placeholder="Descripcion" value="">
+            </div>
+            <div class="col-6">
+              <label for="cant">Cantidad</label>
+              <div class="cant-container">
+                <button class="btn btn-primary">-</button>
+                <input type="text" class="form-control" step="1" formControlName="cant" placeholder="Cantidad" value="">
+                <button class="btn btn-primary">+</button>
+              </div>
+            </div>
+            <div class="col-6">
+              <label>¿Es dinero?</label>
+              <div class="check-container">
+                <input type="checkbox" name="isMoney" class="form-check-input" step="1" formControlName="isMoney" value="">
+                <label for="isMoney">
+                  <span *ngIf="giftForm.value.isMoney else noConfirm">Si</span>
+                  <ng-template #noConfirm>No</ng-template>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="gift-response"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" (click)="submitingGift()">
+              <span *ngIf="isEditing else isCreate">Editar</span>
+              <ng-template #isCreate>Agregar</ng-template>
+            </button>
+            <button class="btn btn-secondary" data-dismiss="modal" v-on:click="cancelGift()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ManageGiftComponent } from './gift/manage-gift/manage-gift.component';
 import { SummaryGiftComponent } from './gift/summary-gift/summary-gift.component';
+import { AddEditCustomGiftModalComponent } from './gift/components/add-edit-custom-gift-modal/add-edit-custom-gift-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SummaryGiftComponent } from './gift/summary-gift/summary-gift.component
     FooterComponent,
     AddEditModalComponent,
     ManageGiftComponent,
-    SummaryGiftComponent
+    SummaryGiftComponent,
+    AddEditCustomGiftModalComponent
   ],
   imports: [
     CommonModule,
