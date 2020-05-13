@@ -2,13 +2,19 @@
     <div class="gift-doing-table">
         <div class="row">
             <div class="col-md-12">
-                Mi lista de Regalos
+                <h3>MI LISTA DE REGALOS</h3>
                 <ul class="list-group">
-                    <li  class="list-group-item" *ngFor="let gift of giftList"> 
-                        {{ gift.description }}
-                        <span *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
+                    <li  class="list-group-item" *ngFor="let gift of summary" [ngClass]="{'list-group-item-success': gift.alreadyDone}"> 
+                        <div>
+                            {{ gift.description }}
+                            <span class="badge badge-secondary" *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
+                        </div>
+                        <div>
+                            <span class="gifted-by" *ngIf="gift.alreadyDone">Regalado por {{gift.giftedBy.description}}</span>
+                        </div>
                     </li> 
                 </ul>
+
             </div>
         </div>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftService } from '../../services/gift.service';
-import { Gift, GetGift } from 'src/app/models/gift.model';
+import { Gift, GetGiftPrivate, GiftPrivate, GiftSummary, GetSummary } from 'src/app/models/gift.model';
+
+declare var $;
 
 @Component({
   selector: 'app-summary-gift',
@@ -11,18 +13,22 @@ export class SummaryGiftComponent implements OnInit {
 
   constructor(private giftService: GiftService) { }
 
-  giftList: Array<Gift>;
+  summary: GiftSummary;
 
   ngOnInit(): void {
     this.getUserGift();
   }
 
   getUserGift() {
-    this.giftService.getUserGift().subscribe((res: GetGift)=> {
+    this.giftService.getSummary().subscribe((res: GetSummary)=> {
 
-      this.giftList = res.response;
-      console.log( this.giftList)
+      this.summary = res.response;
+
     });
+  }
+
+  togglePanel(panel) {
+    $('#'+panel).collapse(); 
   }
 
 }

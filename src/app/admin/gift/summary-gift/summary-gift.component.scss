@@ -1,3 +1,13 @@
 ul {
     margin-bottom: 20px;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        &.list-group-item-success {
+            color: white;
+            background-color: rgb(40, 156, 69);
+        }
+    }
+
 }
