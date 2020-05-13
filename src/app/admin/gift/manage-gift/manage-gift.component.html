@@ -1,1 +1,33 @@
-<p>manage-gift works!</p>
+<div class="manage-gift container">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditGiftModal">Agregar regalo personaliado</button>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-6">
+            <h5>Lista actual</h5>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let gift of giftList; let i = index;">
+                    <span>{{ gift.description }}</span> 
+                    <div>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)">Edit</button> <button class="btn btn-danger" (click)="delete(i)" data-toggle="modal" data-target="#confirmModal">Delete</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-6">
+            <h5>Agregar regalo de sistema</h5>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let gift of giftList;">
+                    {{ gift.description }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<app-add-edit-custom-gift-modal [gifts]="giftEdit" (submitGift)="submitGift($event)"></app-add-edit-custom-gift-modal>
+<app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>

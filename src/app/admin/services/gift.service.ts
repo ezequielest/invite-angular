@@ -15,4 +15,21 @@ export class GiftService {
   getSummary() {
     return this.http.get(`${this.base}/summary/${this.token}`)
   }
+
+  getUserGift() {
+    return this.http.get(`${this.base}/userId/${this.token}`)
+  }
+
+
+  createGift(payload) {
+    return this.http.post(`${this.base}${this.token}`,payload);
+  }
+
+  editGift(id, payload) {
+    return this.http.put(`${this.base}/${id}${this.token}`,payload);
+  }
+
+  deleteGift(id) {
+    return this.http.delete(`${this.base}/${id}${this.token}`);
+  }
 }
