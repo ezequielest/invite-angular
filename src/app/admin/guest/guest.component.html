@@ -9,39 +9,46 @@
         <app-add-edit-modal [guests]="guestEdit" (submitGuest)="submitGuest($event)"></app-add-edit-modal>
       </div>
     </div>
-    <div class="row header-guest">
-      <div class="col-4">
-        TOTAL INVITADOS:  {{ totalGuest }}
-      </div>
-      <div class="col-4">
-        CONFIRMADOS: {{ confirmGuest }}
-      </div>
-      <div class="col-4">
-        SIN CONFIRMAR: {{ noConfirmGuest }}
-      </div>
-    </div>
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th>Invitados</th>
-        <th>Cantidad</th>
-        <th>Confirmado</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let guest of guests; let i = index">
-        <td>{{ guest.description }}</td>
-        <td>{{ guest.cant }}</td>
-        <td>{{ guest.confirmed }}</td>
-        <td>
-          <button class="btn" data-toggle="modal" (click)="edit(i)" data-toggle="modal" data-target="#addEditModal">Editar</button>
-          <button class="btn" data-toggle="modal" (click)="delete(i)" data-target="#confirmModal">Eliminar</button>
-        </td>
-        </tr> 
-    </tbody>
-  </table>
+    <div class="row">
 
-  <app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>
+      <div *ngIf="guests.length == 0 else showTable" class="alert alert-warning col-12" role="alert">
+        Todavia no agregaste ningun invitado, para agregar uno presiona el boton Agregar Invitado
+      </div>
 
+
+      <ng-template #showTable>
+  
+        <div class="header-guest col-12">
+          <div>TOTAL INVITADOS:  {{ totalGuest }}</div>
+          <div>CONFIRMADOS: {{ confirmGuest }}</div>
+          <div>SIN CONFIRMAR: {{ noConfirmGuest }}</div>
+        </div>
+
+
+        <div class="col-12">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Invitados</th>
+                <th>Cantidad</th>
+                <th>Confirmado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let guest of guests; let i = index">
+                <td>{{ guest.description }}</td>
+                <td>{{ guest.cant }}</td>
+                <td>{{ guest.confirmed }}</td>
+                <td>
+                  <button class="btn btn-warning" data-toggle="modal" (click)="edit(i)" data-toggle="modal" data-target="#addEditModal"><i class="fas fa-pencil-alt"></i></button>
+                  <button class="btn btn-danger" data-toggle="modal" (click)="delete(i)" data-target="#confirmModal"><i class="fas fa-trash-alt"></i></button>
+                </td>
+                </tr> 
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+
+      <app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>
 </div>

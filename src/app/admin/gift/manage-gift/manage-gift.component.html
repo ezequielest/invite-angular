@@ -1,30 +1,37 @@
 <div class="manage-gift container">
     <div class="row">
         <div class="col-12">
-            <button class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditGiftModal">Agregar regalo personaliado</button>
+            <button class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditGiftModal">Agregar regalo</button>
         </div>
     </div>
     <div class="row">
-        
-        <div class="col-6">
-            <h5>Lista actual</h5>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let gift of giftList; let i = index;">
-                    <span>{{ gift.description }}</span> 
-                    <div>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)">Edit</button> <button class="btn btn-danger" (click)="delete(i)" data-toggle="modal" data-target="#confirmModal">Delete</button>
-                    </div>
-                </li>
-            </ul>
+        <div class="col-12">
+            <h5>MI LISTA DE REGALOS</h5>
         </div>
 
-        <div class="col-6">
-            <h5>Agregar regalo de sistema</h5>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let gift of giftList;">
-                    {{ gift.description }}
-                </li>
-            </ul>
+        <div class="col-12">
+        
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Descripción</th>
+                    <th>Regalado</th>
+                    <th>Regalado por</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let gift of giftList; let i = index;">
+                    <td>{{ gift.description }}</td>
+                    <th></th>
+                    <th></th>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)"><i class="fas fa-pencil-alt"></i></button> 
+                        <button class="btn btn-danger" (click)="delete(i)" data-toggle="modal" data-target="#confirmModal"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                    </tr> 
+                </tbody>
+              </table>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { GuestService } from '../services/guest.service';
 import { Guest, GetGuest } from 'src/app/models/guest.model';
 import { FormControl } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
+import { LoginService } from 'src/app/login/services/login.service';
 
 declare var $: any;
 

@@ -10,13 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link js-scroll-trigger"[routerLink]="['summary']">Resumen</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link js-scroll-trigger"[routerLink]="['guest']">Invitados</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" [routerLink]="['gift']">Regalos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" [routerLink]="['table']">Mesas</a>
+                <a class="nav-link js-scroll-trigger" disabled>Mesas (próximamente)</a>
             </li>
             </ul>
         </div>
@@ -28,7 +31,7 @@
         <div class="col-lg-12 my-auto">
             <div class="header-content mx-auto  text-center">
                 <h1 class="mb-5">JOAQUIN Y MELISA <i class="fas fa-heart"></i></h1>
-             <h3 class="mb-5">ADMINISTRACION</h3>
+             <h5 class="mb-5">ADMINISTRACION</h5>
             </div>
         </div>
         </div>

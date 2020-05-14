@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from 'src/app/login/services/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,12 @@ import { HttpClient } from '@angular/common/http';
 export class GiftService {
 
   base = 'http://localhost:3000/api/gift'
-  token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZWIzMGU4YjIyYTkyZDQzZmNmZWFmNWEiLCJkZXNjcmlwdGlvbiI6IkV6ZXF1aWVsIHRlc3QiLCJwYXNzd29yZCI6Ii4uLiIsImVtYWlsIjoiZXplcXVpZWxAaW52aXRlLmNvbS5hciIsIl9fdiI6MH0sImlhdCI6MTU4OTM3ODMzNCwiZXhwIjoxNTg5NDY0NzM0fQ.HWHKdUHxHbXRS_CxW5apLLAZnQEWKRByB9i7fhLGhpc';
+  token: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loginService: LoginService) {
+    this.token = '?token=' + this.loginService.token;
+    console.log(this.token)
+   }
 
   //userId in token
   getSummary() {

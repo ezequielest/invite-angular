@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AddEditGuest } from 'src/app/models/guest.model';
+import { LoginService } from 'src/app/login/services/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +9,25 @@ import { AddEditGuest } from 'src/app/models/guest.model';
 export class GuestService {
 
   base = 'http://localhost:3000/api'
+  token: string;
 
-  token = '?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZWIzMGU4YjIyYTkyZDQzZmNmZWFmNWEiLCJkZXNjcmlwdGlvbiI6IkV6ZXF1aWVsIHRlc3QiLCJwYXNzd29yZCI6Ii4uLiIsImVtYWlsIjoiZXplcXVpZWxAaW52aXRlLmNvbS5hciIsIl9fdiI6MH0sImlhdCI6MTU4OTM3ODMzNCwiZXhwIjoxNTg5NDY0NzM0fQ.HWHKdUHxHbXRS_CxW5apLLAZnQEWKRByB9i7fhLGhpc';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loginService: LoginService) {
+    this.token = '?token=' + this.loginService.token;
+  }
 
   getGuest() {
-    return this.http.get(`${this.base}/guest${this.token}`);
+    return this.http.get(`${this.base}/guest/userId` + this.token);
   }
 
   createGuest(payload: AddEditGuest) {
-    console.log('creating ', payload)
-    return this.http.post(`${this.base}/guest${this.token}`, payload);
+    return this.http.post(`${this.base}/guest` + this.token, payload);
   }
 
   editGuest(id: string, payload: AddEditGuest) {
-    return this.http.put(`${this.base}/guest/${id}${this.token}`, payload);
+    return this.http.put(`${this.base}/guest/${id}` + this.token, payload);
   }
 
   deleteGuest(id: string) {
-    return this.http.delete(`${this.base}/guest/${id}${this.token}`);
+    return this.http.delete(`${this.base}/guest/${id}` + this.token);
   }
 }

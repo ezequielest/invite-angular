@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ManageGiftComponent } from './gift/manage-gift/manage-gift.component';
 import { SummaryGiftComponent } from './gift/summary-gift/summary-gift.component';
 import { AddEditCustomGiftModalComponent } from './gift/components/add-edit-custom-gift-modal/add-edit-custom-gift-modal.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddEditCustomGiftModalComponent } from './gift/components/add-edit-cust
     AddEditModalComponent,
     ManageGiftComponent,
     SummaryGiftComponent,
-    AddEditCustomGiftModalComponent
+    AddEditCustomGiftModalComponent,
+    SummaryComponent
   ],
   imports: [
     CommonModule,

@@ -33,7 +33,7 @@ export interface GiftPrivate {
 }
 
 export interface GetSummary {
-    response: GiftSummary;
+    response: Array<GiftSummary>;
 }
 
 export interface GiftSummary {

@@ -13,7 +13,7 @@ export class SummaryGiftComponent implements OnInit {
 
   constructor(private giftService: GiftService) { }
 
-  summary: GiftSummary;
+  summary: Array<GiftSummary>;
 
   ngOnInit(): void {
     this.getUserGift();
@@ -23,6 +23,7 @@ export class SummaryGiftComponent implements OnInit {
     this.giftService.getSummary().subscribe((res: GetSummary)=> {
 
       this.summary = res.response;
+      console.log(this.summary)
 
     });
   }
