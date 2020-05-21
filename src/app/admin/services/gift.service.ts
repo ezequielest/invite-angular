@@ -12,7 +12,6 @@ export class GiftService {
 
   constructor(private http: HttpClient, private loginService: LoginService) {
     this.token = '?token=' + this.loginService.token;
-    console.log(this.token)
    }
 
   //userId in token

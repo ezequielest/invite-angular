@@ -1,3 +1,40 @@
+<div class="container summary-gift">
+    <div class="gift-doing-table">
+        <div class="row">
+            <div class="col-12">
+                <h3>MI LISTA DE REGALOS</h3>
+            </div>
+
+
+            <div class="col-12" *ngIf="giftList.length == 0 else giftList">
+                NO HAY REGALOS CARGADOS, para cargar un regalo vaya a Administrar regalos.
+            </div>
+            <ng-template #giftList>
+                <div class="col-md-8">
+                    <ul class="list-group-flush">
+                        <li  class="list-group-item" *ngFor="let gift of giftList" [ngClass]="{'list-group-item-success': gift.alreadyDone}"> 
+                            <div>
+                                {{ gift.description }}
+                                <span class="badge badge-secondary" *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
+                            </div>
+                            <div>
+                                <span class="gifted-by" *ngIf="gift.alreadyDone">Regalado por {{gift.giftedBy.description}}</span>
+                            </div>
+                        </li> 
+                    </ul>
+
+                </div>
+                <div class="col-md-4">
+                    <p>Cantidad de regalos en la lista: <span class="badge badge-secondary"></span></p>
+                    <p>Total Regalados: <span class="badge badge-secondary"></span></p>
+                </div>
+            </ng-template>
+
+        </div>
+
+    </div>
+</div>
+
 <div class="manage-gift container">
     <div class="row">
         <div class="col-12">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/login/services/login.service';
 
 @Component({
   selector: 'app-summary',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { 
+    this.loginService.loadLocalStorage();
+  }
 
   ngOnInit(): void {
   }
