@@ -11,6 +11,8 @@ export class AuthLogin implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+        console.log('interceptor ',request);
+
         return next.handle(request).pipe(
             catchError((err: any) => {
                 if (err instanceof HttpErrorResponse) {
