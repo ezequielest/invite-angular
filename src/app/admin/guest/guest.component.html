@@ -11,7 +11,7 @@
     </div>
     <div class="row">
 
-      <div *ngIf="guests.length == 0 else showTable" class="alert alert-warning col-12" role="alert">
+      <div *ngIf="guests && guests.length == 0 else showTable" class="alert alert-warning col-12" role="alert">
         Todavia no agregaste ningun invitado, para agregar uno presiona el boton Agregar Invitado
       </div>
 

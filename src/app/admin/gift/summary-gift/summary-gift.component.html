@@ -6,7 +6,7 @@
             </div>
 
 
-            <div class="col-12" *ngIf="summary.length == 0 else giftList">
+            <div class="col-12" *ngIf="summary && summary.length == 0 else giftList">
                 NO HAY REGALOS CARGADOS, para cargar un regalo vaya a Administrar regalos.
             </div>
             <ng-template #giftList>

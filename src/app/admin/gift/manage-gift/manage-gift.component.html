@@ -5,8 +5,7 @@
                 <h3>MI LISTA DE REGALOS</h3>
             </div>
 
-
-            <div class="col-12" *ngIf="giftList.length == 0 else giftList">
+            <div class="col-12" *ngIf="gifts && gifts.length == 0 else giftList">
                 NO HAY REGALOS CARGADOS, para cargar un regalo vaya a Administrar regalos.
             </div>
             <ng-template #giftList>

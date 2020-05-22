@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from 'src/app/login/services/login.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GiftService {
 
-  base = 'http://localhost:3000/api/gift'
+  base = `${environment.apiURL}/api/gift`;
   token: string;
 
   constructor(private http: HttpClient, private loginService: LoginService) {

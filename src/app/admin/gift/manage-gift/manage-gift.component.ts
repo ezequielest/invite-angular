@@ -15,11 +15,10 @@ export class ManageGiftComponent implements OnInit {
 
   constructor(private giftService: GiftService) { }
 
-  giftList: Array<Gift>;
+  gifts: Array<Gift>;
   giftEdit: Gift = null;
   giftDelete: Gift;
   messageConfirm: string;
-
 
   ngOnInit(): void {
     this.getUserGift();
@@ -27,7 +26,8 @@ export class ManageGiftComponent implements OnInit {
 
   getUserGift() {
     this.giftService.getUserGift().subscribe((res: GetGift)=> {
-      this.giftList = res.response;
+      this.gifts = res.response;
+      console.log(this.gifts)
     });
   }
 
@@ -36,11 +36,11 @@ export class ManageGiftComponent implements OnInit {
   }
 
   edit(i) {
-    this.giftEdit =  this.giftList[i];
+    this.giftEdit =  this.gifts[i];
   }
 
   delete(i) {
-    this.giftDelete =  this.giftList[i];
+    this.giftDelete =  this.gifts[i];
     this.messageConfirm = "Esta seguro de que quiere eliminar el regalo: " + this.giftDelete.description + " ?";
   }
 
@@ -52,7 +52,7 @@ export class ManageGiftComponent implements OnInit {
           return this.giftService.getUserGift();
         })
       ).subscribe((res: GetGift) => {
-        this.giftList = res.response;
+        this.gifts = res.response;
       });
 
     }
@@ -66,7 +66,7 @@ export class ManageGiftComponent implements OnInit {
           return this.giftService.getUserGift();
         })
       ).subscribe((res: GetGift) => {
-        this.giftList = res.response;
+        this.gifts = res.response;
       });
     } else {
       
@@ -76,7 +76,7 @@ export class ManageGiftComponent implements OnInit {
           return this.giftService.getUserGift();
         })
       ).subscribe((res: GetGift) => {
-        this.giftList = res.response;
+        this.gifts = res.response;
       });
     }
   }

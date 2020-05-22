@@ -13,6 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthLogin } from './core/authLogin.interceptor';
+import { AuthService } from './core/auth.service';
+import { AuthGuardService } from './core/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AuthLogin } from './core/authLogin.interceptor';
     ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthLogin, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthLogin, multi: true },
+    AuthGuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

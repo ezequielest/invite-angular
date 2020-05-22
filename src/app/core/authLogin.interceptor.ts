@@ -15,7 +15,7 @@ export class AuthLogin implements HttpInterceptor {
             catchError((err: any) => {
                 if (err instanceof HttpErrorResponse) {
                     if (err.status === 401) {
-                        window.location.href="login";
+                        window.location.href="/#/login";
                     }
                   }
                 
