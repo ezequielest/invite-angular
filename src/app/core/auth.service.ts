@@ -8,12 +8,21 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 export class AuthService {
 
   helper = new JwtHelperService();
+  token: string;
 
   constructor() {}
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-  
-    return !this.helper.isTokenExpired(token);
+    this.token = localStorage.getItem('token');
+
+    if (this.token) {
+      return !this.helper.isTokenExpired(this.token);
+    } else {
+      return false;
+    }
+  }
+
+  public getToken(){
+    return this.token;
   }
 }

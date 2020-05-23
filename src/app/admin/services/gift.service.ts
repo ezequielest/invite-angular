@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from 'src/app/login/services/login.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class GiftService {
   base = `${environment.apiURL}/api/gift`;
   token: string;
 
-  constructor(private http: HttpClient, private loginService: LoginService) {
-    this.token = '?token=' + this.loginService.token;
+  constructor(private http: HttpClient, private auth: AuthService) {
+    this.token = '?token=' + this.auth.token;
    }
 
   //userId in token

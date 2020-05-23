@@ -8,17 +8,10 @@ import { environment } from 'src/environments/environment';
 export class LoginService {
 
   base = `${environment.apiURL}/api/user`;
-  token: string;
 
-  constructor(private http: HttpClient) {
-    this.loadLocalStorage();
-   }
+  constructor(private http: HttpClient) {}
 
   login (payload) {
     return this.http.post(`${this.base}/login`, payload);
-  }
-
-  loadLocalStorage(){
-    this.token = localStorage.getItem('token');
   }
 }

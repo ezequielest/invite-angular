@@ -3,18 +3,37 @@
         <div class="row">
             <div class="col-12">
                 <h2>RESUMEN DE CUENTA</h2>
-
-                <h5>INVITADOS</h5>
-                <p>Total de invitados:</p>
-                <p>Confirmados:</p>
-                <p>Sin confirmar:</p>
-            
-                <h5>REGALOS</h5>
-                <p>Numero de regalos:</p>
-                <p>Regalos recibidos hasta el momento:</p>
+                <div class="cards-container">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/guest.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Invitados</h5>
+                            <p class="card-text">Información sobre los invitados</p>
+                            <p>Total de invitados:</p>
+                            <p>Total de confirmados:</p>
+                            {{ porcentGift }}%
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': porcentGift}"></div>
+                            </div>
+                            <a href="#" class="btn btn-primary">Administrar</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/gift.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Regalos</h5>
+                          <p class="card-text">Información sobre los regalos</p>
+                          <p>Total regalos: {{ totalGifts }}</p>
+                          <p>Regalos obtenidos: {{ totalGiftGiven }}</p>
+                          {{ porcentGift }}%
+                          <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': porcentGift}"></div>
+                          </div>
+                          <a href="#" class="btn btn-primary">Administrar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
 </div>

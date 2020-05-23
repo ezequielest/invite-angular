@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AddEditGuest } from 'src/app/models/guest.model';
 import { LoginService } from 'src/app/login/services/login.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class GuestService {
   base = `${environment.apiURL}/api`;
   token: string;
 
-  constructor(private http: HttpClient, private loginService: LoginService) {
-    this.token = '?token=' + this.loginService.token;
+  constructor(private http: HttpClient, private auth: AuthService) {
+    this.token = '?token=' + this.auth.token;
   }
 
   getGuest() {
