@@ -4,24 +4,28 @@
             <div class="col-12">
                 <h2>RESUMEN DE CUENTA</h2>
                 <div class="cards-container">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../../../assets/guest.jpg" class="card-img-top" alt="...">
+                    <div class="card guest" style="width: 25rem;">
+                        <div class="card-header">
+                            Invitados
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Invitados</h5>
+                            <h5 class="card-title"></h5>
                             <p class="card-text">Información sobre los invitados</p>
-                            <p>Total de invitados:</p>
-                            <p>Total de confirmados:</p>
-                            {{ porcentGift }}%
+                            <p>Total de invitados: {{ totalGuest }}</p>
+                            <p>Total de confirmados: {{ totalGuestGiven }}</p>
+                            {{ porcentGuest }}%
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': porcentGift}"></div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': porcentGuest}"></div>
                             </div>
-                            <a href="#" class="btn btn-primary">Administrar</a>
+                            <a [routerLink]="['/admin','guest']" class="btn btn-primary">Administrar</a>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../../../assets/gift.jpg" class="card-img-top" alt="...">
+                    <div class="card gift" style="width: 25rem;">
+                        <div class="card-header">
+                            Regalos
+                        </div>
                         <div class="card-body">
-                          <h5 class="card-title">Regalos</h5>
+                          <h5 class="card-title"></h5>
                           <p class="card-text">Información sobre los regalos</p>
                           <p>Total regalos: {{ totalGifts }}</p>
                           <p>Regalos obtenidos: {{ totalGiftGiven }}</p>
@@ -29,7 +33,7 @@
                           <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': porcentGift}"></div>
                           </div>
-                          <a href="#" class="btn btn-primary">Administrar</a>
+                          <a [routerLink]="['/admin','gift']"class="btn btn-primary">Administrar</a>
                         </div>
                     </div>
                 </div>

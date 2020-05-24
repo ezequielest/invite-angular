@@ -3,16 +3,15 @@
         <div class="row">
             <div class="col-12">
                 <h3>MI LISTA DE REGALOS</h3>
+                <button class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditGiftModal">Agregar regalo</button>
             </div>
-
-
-            <div class="col-12" *ngIf="summary && summary.length == 0 else giftList">
+            <div class="col-12" *ngIf="giftSummary && giftSummary.length == 0 else giftList">
                 NO HAY REGALOS CARGADOS, para cargar un regalo vaya a Administrar regalos.
             </div>
             <ng-template #giftList>
-                <div class="col-md-8">
-                    <ul class="list-group-flush">
-                        <li  class="list-group-item" *ngFor="let gift of summary" [ngClass]="{'list-group-item-success': gift.alreadyDone}"> 
+                <div class="col-md-12">
+                    <ul class="list-group">
+                        <li  class="list-group-item" *ngFor="let gift of giftSummary; let i = index" [ngClass]="{'list-group-item-success': gift.alreadyDone}"> 
                             <div>
                                 {{ gift.description }}
                                 <span class="badge badge-secondary" *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
@@ -20,13 +19,13 @@
                             <div>
                                 <span class="gifted-by" *ngIf="gift.alreadyDone">Regalado por {{gift.giftedBy.description}}</span>
                             </div>
+                            <div>
+                                <button class="btn btn-warning" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)"><i class="fas fa-pencil-alt"></i></button> 
+                                <button class="btn btn-danger" (click)="delete(i)" data-toggle="modal" data-target="#confirmModal"><i class="fas fa-trash-alt"></i></button>
+                            </div>
                         </li> 
                     </ul>
 
-                </div>
-                <div class="col-md-4">
-                    <p>Cantidad de regalos en la lista: <span class="badge badge-secondary"></span></p>
-                    <p>Total Regalados: <span class="badge badge-secondary"></span></p>
                 </div>
             </ng-template>
 
@@ -34,3 +33,6 @@
 
     </div>
 </div>
+
+<app-add-edit-custom-gift-modal [gifts]="giftEdit" (submitGift)="submitGift($event)"></app-add-edit-custom-gift-modal>
+<app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>

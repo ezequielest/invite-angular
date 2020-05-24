@@ -1,7 +1,7 @@
 <div class="container guest">
     <div class="row">
       <div class="col-12">
-
+        <h3>MI LISTA DE INVITADOS</h3>
         <button type="button" class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditModal">
           Agregar Invitado
         </button>
@@ -17,37 +17,28 @@
       </div>
 
       <ng-template #showTable>
-  
-        <div class="header-guest col-12">
-          <div>TOTAL INVITADOS:  {{ totalGuest }}</div>
-          <div>CONFIRMADOS: {{ confirmGuest }}</div>
-          <div>SIN CONFIRMAR: {{ noConfirmGuest }}</div>
-        </div>
+          <div class="header-guest " style="display:none">
+            <div>TOTAL INVITADOS:  {{ totalGuest }}</div>
+            <div>CONFIRMADOS: {{ confirmGuest }}</div>
+            <div>SIN CONFIRMAR: {{ noConfirmGuest }}</div>
+          </div>
 
-
-        <div class="col-12">
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>Invitados</th>
-                <th>Cantidad</th>
-                <th>Confirmado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let guest of guests; let i = index">
-                <td>{{ guest.description }}</td>
-                <td>{{ guest.cant }}</td>
-                <td>{{ guest.confirmed }}</td>
-                <td>
+          <div>
+            <ul class="list-group">
+              <li class="list-group-item" [ngClass]="{'list-group-item-success': guest.confirmed}" *ngFor="let guest of guests; let i = index">
+                <div>
+                  <div><h3>{{ guest.description }}</h3></div>
+                  <div>Personas: {{ guest.cant }}</div>
+                  <div>Confirmo: {{ guest.confirmed ? 'Si' : 'No'  }}</div>
+                </div>
+                <div>
                   <button class="btn btn-warning" data-toggle="modal" (click)="edit(i)" data-toggle="modal" data-target="#addEditModal"><i class="fas fa-pencil-alt"></i></button>
                   <button class="btn btn-danger" data-toggle="modal" (click)="delete(i)" data-target="#confirmModal"><i class="fas fa-trash-alt"></i></button>
-                </td>
-                </tr> 
-            </tbody>
-          </table>
-        </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
       </ng-template>
 
       <app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>

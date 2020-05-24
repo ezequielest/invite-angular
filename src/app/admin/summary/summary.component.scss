@@ -10,6 +10,29 @@
         justify-content: flex-start;
 
         .card {
+            &.gift {             
+                .card-header {
+                    background-image: url('/assets/gift.jpg');
+                }
+            }
+
+            &.guest {             
+                .card-header {
+                    background-image: url('/assets/guest.jpg');
+                }
+            }
+
+            .card-header{    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-size: cover;
+                background-position: center;
+                text-align: center;
+                color: white;
+                height: 100px
+            }
+
             margin-right: 20px;
 
             .btn {

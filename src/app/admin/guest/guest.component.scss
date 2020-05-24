@@ -8,8 +8,20 @@
         width: 100%;
     }
 
-    .alert {
-        margin-top: 30px;
+    .list-group {
+        margin-top: 20px;
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+    
+            button { 
+                margin-left: 5px;
+            }
+        }
+    }
 
+
+    .alert {
+        margin-top: 20px;
     }
 }

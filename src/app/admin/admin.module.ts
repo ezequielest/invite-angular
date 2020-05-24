@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { AddEditModalComponent } from './guest/components/add-edit-modal/add-edit-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { ManageGiftComponent } from './gift/manage-gift/manage-gift.component';
 import { SummaryGiftComponent } from './gift/summary-gift/summary-gift.component';
 import { AddEditCustomGiftModalComponent } from './gift/components/add-edit-custom-gift-modal/add-edit-custom-gift-modal.component';
 import { SummaryComponent } from './summary/summary.component';
@@ -22,7 +21,6 @@ import { SummaryComponent } from './summary/summary.component';
     HeaderComponent,
     FooterComponent,
     AddEditModalComponent,
-    ManageGiftComponent,
     SummaryGiftComponent,
     AddEditCustomGiftModalComponent,
     SummaryComponent
