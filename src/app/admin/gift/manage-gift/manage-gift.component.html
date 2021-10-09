@@ -1,0 +1,77 @@
+<!--<div class="container summary-gift">
+    <div class="gift-doing-table">
+        <div class="row">
+            <div class="col-12">
+                <h3>MI LISTA DE REGALOS</h3>
+            </div>
+
+
+            <div class="col-12" *ngIf="giftList.length == 0 else giftList">
+                NO HAY REGALOS CARGADOS, para cargar un regalo vaya a Administrar regalos.
+            </div>
+            <ng-template #giftList>
+                <div class="col-md-8">
+                    <ul class="list-group-flush">
+                        <li  class="list-group-item" *ngFor="let gift of giftList" [ngClass]="{'list-group-item-success': gift.alreadyDone}"> 
+                            <div>
+                                {{ gift.description }}
+                                <span class="badge badge-secondary" *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
+                            </div>
+                            <div>
+                                <span class="gifted-by" *ngIf="gift.alreadyDone">Regalado por {{gift.giftedBy.description}}</span>
+                            </div>
+                        </li> 
+                    </ul>
+
+                </div>
+                <div class="col-md-4">
+                    <p>Cantidad de regalos en la lista: <span class="badge badge-secondary"></span></p>
+                    <p>Total Regalados: <span class="badge badge-secondary"></span></p>
+                </div>
+            </ng-template>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="manage-gift container">
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="add()" data-toggle="modal" data-target="#addEditGiftModal">Agregar regalo</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h5>MI LISTA DE REGALOS</h5>
+        </div>
+
+        <div class="col-12">
+        
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Descripción</th>
+                    <th>Regalado</th>
+                    <th>Regalado por</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let gift of giftList; let i = index;">
+                    <td>{{ gift.description }}</td>
+                    <th></th>
+                    <th></th>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)"><i class="fas fa-pencil-alt"></i></button> 
+                        <button class="btn btn-danger" (click)="delete(i)" data-toggle="modal" data-target="#confirmModal"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                    </tr> 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+<app-add-edit-custom-gift-modal [gifts]="giftEdit" (submitGift)="submitGift($event)"></app-add-edit-custom-gift-modal>
+<app-confirm-modal [message]="messageConfirm" (confirm)="confirmationModal($event)"></app-confirm-modal>-->
