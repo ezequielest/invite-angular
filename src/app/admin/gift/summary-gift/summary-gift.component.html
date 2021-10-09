@@ -17,7 +17,7 @@
                                 <span class="badge badge-secondary" *ngIf="gift.cant > 1">x{{ gift.cant }}</span>
                             </div>
                             <div>
-                                <span class="gifted-by" *ngIf="gift.alreadyDone">Regalado por {{gift.giftedBy.description}}</span>
+                                <span class="gifted-by" *ngIf="gift.alreadyDone && gift.giftedBy">Regalado por {{gift.giftedBy.description}}</span>
                             </div>
                             <div>
                                 <button class="btn btn-warning" data-toggle="modal" data-target="#addEditGiftModal" (click)="edit(i)"><i class="fas fa-pencil-alt"></i></button> 

@@ -24,7 +24,6 @@ export class SummaryComponent implements OnInit {
   ngOnInit(): void {
 
     this.summaryService.getSummary().subscribe((res:getSummary) => {
-      console.log(res)
       this.summary = res.response;
 
       //gift summary

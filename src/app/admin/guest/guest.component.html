@@ -28,8 +28,9 @@
               <li class="list-group-item" [ngClass]="{'list-group-item-success': guest.confirmed}" *ngFor="let guest of guests; let i = index">
                 <div>
                   <div><h3>{{ guest.description }}</h3></div>
-                  <div>Personas: {{ guest.cant }}</div>
-                  <div>Confirmo: {{ guest.confirmed ? 'Si' : 'No'  }}</div>
+                  <div>Invitados: {{ guest.cant }}</div>
+                  <div>Confirmados: {{ guest.cantConfirmed }}</div>
+                  <div>Confirmas: {{ guest.confirmed ? 'Si' : 'No'  }}</div>
                 </div>
                 <div>
                   <button class="btn btn-warning" data-toggle="modal" (click)="edit(i)" data-toggle="modal" data-target="#addEditModal"><i class="fas fa-pencil-alt"></i></button>

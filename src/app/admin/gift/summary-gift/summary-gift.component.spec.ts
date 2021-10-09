@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SummaryGiftComponent } from './summary-gift.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('SummaryGiftComponent', () => {
   let component: SummaryGiftComponent;
@@ -8,7 +9,8 @@ describe('SummaryGiftComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryGiftComponent ]
+      declarations: [ SummaryGiftComponent ],
+      imports: [HttpClientModule],
     })
     .compileComponents();
   }));
